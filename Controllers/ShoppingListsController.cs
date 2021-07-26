@@ -12,9 +12,14 @@ namespace ShoppingAPI.Controllers
     [ApiController]
     public class ShoppingListsController : ControllerBase
     {
-        private readonly MockShoppingRepo _repository = new MockShoppingRepo();
+        private readonly IShoppingRepo _repository;
 
-        //GET api/shoppinglist
+        public ShoppingListsController(IShoppingRepo repository)
+        {
+            _repository = repository;
+        }
+
+        //GET api/shoppinglists
         [HttpGet]
         public ActionResult<IEnumerable<ShoppingList>> GetAllItems()
         {
@@ -24,7 +29,7 @@ namespace ShoppingAPI.Controllers
         
         }
 
-        //GET api/shoppinglist/{id}
+        //GET api/shoppinglists/{id}
         [HttpGet("{id}")]
         public ActionResult <ShoppingList> GetItemById(int id)
         {
