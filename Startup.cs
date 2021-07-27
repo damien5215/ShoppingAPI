@@ -10,6 +10,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using ShoppingAPI.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ShoppingAPI
 {
@@ -25,8 +26,12 @@ namespace ShoppingAPI
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<ShoppingListContext>(opt => 
+            opt.UseSqlServer(Configuration.GetConnectionString("ShoppingListConnection")));
+            
             services.AddControllers();
-            services.AddScoped<IShoppingRepo, MockShoppingRepo>();
+            //services.AddScoped<IShoppingRepo, MockShoppingRepo>();
+            services.AddScoped<IShoppingRepo, ShoppingRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
