@@ -26,5 +26,26 @@ namespace ShoppingAPI.Data
             .Where(b => b.Id == id)
             .FirstOrDefault();
         }
+
+        public void CreateShoppingList(ShoppingList shoppingList)
+        {
+            if (shoppingList == null)
+            {
+                throw new ArgumentNullException(nameof(shoppingList));
+            }
+
+            _context.ShoppingLists.Add(shoppingList);
+        }
+
+        public bool SaveChanges()
+        {
+            return (_context.SaveChanges() >= 0);
+        }
+
+        public void UpdateShoppingList(ShoppingList shoppingList)
+        {
+            // Nothing!
+            // throw new NotImplementedException();
+        }
     }
 }

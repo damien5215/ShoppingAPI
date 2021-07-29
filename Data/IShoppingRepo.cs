@@ -8,8 +8,12 @@ namespace ShoppingAPI.Data
 {
     public interface IShoppingRepo
     {
+        bool SaveChanges();
+
         IEnumerable<ShoppingList> GetFullList();
         ShoppingList GetItemById(int id);
+        void CreateShoppingList(ShoppingList shoppingList);
+        void UpdateShoppingList(ShoppingList shoppingList);
     }
 }
 

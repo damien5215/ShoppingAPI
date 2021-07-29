@@ -30,7 +30,9 @@ namespace ShoppingAPI
             opt.UseSqlServer(Configuration.GetConnectionString("ShoppingListConnection")));
             
             services.AddControllers();
-            //services.AddScoped<IShoppingRepo, MockShoppingRepo>();
+
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddScoped<IShoppingRepo, ShoppingRepo>();
         }
 

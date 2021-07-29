@@ -51,6 +51,11 @@ namespace ShoppingAPI.Data
             return listOfItems;
         }
 
+        public void CreateShoppingList(ShoppingList shoppingList)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ShoppingList> GetFullList()
         {
             var list = CreateList();
@@ -65,6 +70,16 @@ namespace ShoppingAPI.Data
             return list
                 .Where(b => b.Id == id)
                 .FirstOrDefault();
+        }
+
+        public bool SaveChanges()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void UpdateShoppingList(ShoppingList shoppingList)
+        {
+            throw new NotImplementedException();
         }
     }
 }
