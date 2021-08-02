@@ -45,7 +45,16 @@ namespace ShoppingAPI.Data
         public void UpdateShoppingList(ShoppingList shoppingList)
         {
             // Nothing!
-            // throw new NotImplementedException();
+        }
+
+        public void DeleteShoppingList(ShoppingList shoppingList)
+        {
+            if (shoppingList == null)
+            {
+                throw new ArgumentNullException(nameof(shoppingList));
+            }
+
+            _context.ShoppingLists.Remove(shoppingList);
         }
     }
 }

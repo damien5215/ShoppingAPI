@@ -76,7 +76,23 @@ namespace ShoppingAPI.Controllers
             _repository.SaveChanges();
 
             return NoContent();
+        }
 
+        //DELETE api/shoppinglists/{id}
+        [HttpDelete("{id}")]
+        public ActionResult DeleteItem(int id) 
+        {
+            var slModelFromRepo = _repository.GetItemById(id);
+
+            if (slModelFromRepo == null)
+            {
+                return NotFound();
+            }
+
+            _repository.DeleteShoppingList(slModelFromRepo);
+            _repository.SaveChanges();
+
+            return NoContent();
         }
     }
 }

@@ -56,6 +56,11 @@ namespace ShoppingAPI.Data
             throw new NotImplementedException();
         }
 
+        public void DeleteShoppingList(ShoppingList shoppingList)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<ShoppingList> GetFullList()
         {
             var list = CreateList();

@@ -14,6 +14,7 @@ namespace ShoppingAPI.Data
         ShoppingList GetItemById(int id);
         void CreateShoppingList(ShoppingList shoppingList);
         void UpdateShoppingList(ShoppingList shoppingList);
+        void DeleteShoppingList(ShoppingList shoppingList);
     }
 }
 
